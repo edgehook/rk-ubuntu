@@ -28,6 +28,7 @@ apt-get update
 apt-get install -y sudo
 apt-get install -y mtd-utils
 apt-get install -y minicom
+apt-get install -y iperf3
 apt-get install -y ftp
 #for rpmb
 #apt-get install -y mmc-utils
