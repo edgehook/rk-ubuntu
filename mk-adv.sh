@@ -46,6 +46,10 @@ rm -rf /tmp/timesync.sh
 #for docker
 dpkg -i  /packages/docker/*.deb
 apt-get install -f -y
+# qt
+apt-get install -y libqt5webenginecore5
+apt-get install -y libqt5quickwidgets5
+apt-get install -y libqt5webenginewidgets5
 #---------------Adjust--------------
 systemctl enable advinit.service
 systemctl enable adv-wifi-init.service
