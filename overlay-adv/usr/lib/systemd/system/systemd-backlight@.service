@@ -11,7 +11,9 @@
 Description=Load/Save Screen Backlight Brightness of %i
 Documentation=man:systemd-backlight@.service(8)
 DefaultDependencies=no
+RequiresMountsFor=/var/lib/systemd/backlight
 Conflicts=shutdown.target
+After=gdm3.service
 Before=sysinit.target shutdown.target
 
 [Service]
