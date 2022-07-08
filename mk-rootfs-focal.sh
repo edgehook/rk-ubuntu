@@ -18,7 +18,11 @@ if [ ! $VERSION ]; then
 	VERSION="release"
 fi
 
-if [ ! -e ubuntu-focal-base-$ARCH.tar.gz ]; then
+if [ -e $TARGET_ROOTFS_DIR ]; then
+	sudo rm -rf $TARGET_ROOTFS_DIR
+fi
+
+if [ ! -e ubuntu20.04-whole.tar.gz ]; then
 	echo "\033[36m Run mk-base-ubuntu.sh first \033[0m"
 	exit -1
 fi
@@ -30,7 +34,7 @@ finish() {
 trap finish ERR
 
 echo -e "\033[36m Extract image \033[0m"
-sudo tar -xpf ubuntu-focal-base-$ARCH.tar.gz
+sudo tar -xpf ubuntu20.04-whole.tar.gz
 
 # packages folder
 sudo mkdir -p $TARGET_ROOTFS_DIR/packages
@@ -134,7 +138,7 @@ sed -i "1aexport LD_PRELOAD=libdrm-cursor.so.1" /usr/bin/X
 
 #------------------blueman------------
 echo -e "\033[36m Install blueman.................... \033[0m"
-#\${APT_INSTALL} /packages/blueman/*.deb
+\${APT_INSTALL} /packages/blueman/*.deb
 
 #------------------rkwifibt------------
 echo -e "\033[36m Install rkwifibt.................... \033[0m"

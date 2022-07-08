@@ -1,0 +1,12 @@
+[Unit]
+Description=advantech wifi init
+After=networking.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/adv_wifi_init.sh
+
+[Install]
+Alias=adv-wifi-init.service
+WantedBy=multi-user.target
+

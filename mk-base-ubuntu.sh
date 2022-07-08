@@ -11,8 +11,12 @@ fi
 VERSION="debug"
 TARGET_ROOTFS_DIR="binary"
 
-if [ -e ubuntu-$RELEASE-base-*.tar.gz ]; then
-	rm ubuntu-$RELEASE-base-*.tar.gz
+if [ -e ubuntu20.04-whole.tar.gz ]; then
+	sudo rm -rf ubuntu20.04-whole.tar.gz
+fi
+
+if [ -d $TARGET_ROOTFS_DIR ] ; then
+	sudo rm -rf $TARGET_ROOTFS_DIR
 fi
 
 if [ ! -d $TARGET_ROOTFS_DIR ] ; then
@@ -123,7 +127,7 @@ EOF
 
 ./ch-mount.sh -u $TARGET_ROOTFS_DIR
 
-sudo tar zcvf ubuntu-$RELEASE-base-$ARCH.tar.gz $TARGET_ROOTFS_DIR
+sudo tar zcvf ubuntu20.04-whole.tar.gz $TARGET_ROOTFS_DIR
 
 sudo rm $TARGET_ROOTFS_DIR -r
 
