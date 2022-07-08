@@ -50,6 +50,8 @@ apt-get install -f -y
 apt-get install -y libqt5webenginecore5
 apt-get install -y libqt5quickwidgets5
 apt-get install -y libqt5webenginewidgets5
+# udisks2
+apt-get install -y libblockdev-mdraid2
 #---------------Adjust--------------
 systemctl enable advinit.service
 systemctl enable adv-wifi-init.service
