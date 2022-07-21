@@ -111,7 +111,9 @@ echo -e "\033[36m Install camera.................... \033[0m"
 
 #---------Xserver---------
 echo -e "\033[36m Install Xserver.................... \033[0m"
-\${APT_INSTALL} /packages/xserver/*.deb
+#\${APT_INSTALL} /packages/xserver/*.deb
+dpkg -i /packages/xserver/*.deb
+apt install -f -y
 
 apt-mark hold xserver-common xserver-xorg-core xserver-xorg-legacy
 
