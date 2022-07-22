@@ -88,8 +88,30 @@ echo -e "127.0.0.1    localhost \n127.0.1.1    Ubuntu20-04\n" > /etc/hosts
 #---------------Clean--------------
 apt-get clean
 apt autoremove -y
-rm -rf /packages/dokcer/
 rm -rf /var/lib/apt/lists/*
+rm -rf /packages/rga/
+rm -rf /packages/mpp/
+rm -rf /packages/gst-rkmpp/
+rm -rf /packages/gstreamer/
+rm -rf /packages/gst-plugins-base1.0/
+rm -rf /packages/gst-plugins-bad1.0/
+rm -rf /packages/gst-plugins-good1.0/
+rm -rf /packages/rkisp/
+rm -rf /packages/rkaiq/
+rm -rf /packages/libv4l/
+rm -rf /packages/xserver/
+rm -rf /packages/chromium/
+rm -rf /packages/libdrm/
+rm -rf /packages/libdrm-cursor/
+rm -rf /packages/blueman/
+rm -rf /packages/rkwifibt/
+rm -rf /packages/rknpu2/
+rm -rf /packages/rktoolkit/
+rm -rf /packages/ffmpeg/
+rm -rf /packages/mpv/
+rm -rf /packages/docker/
+rm -rf /packages/libmali/
+rm -rf /packages/glmark2/
 EOF
 
 sudo umount $TARGET_ROOTFS_DIR/dev
