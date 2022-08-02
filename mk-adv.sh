@@ -22,7 +22,28 @@ sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
+##thunderbird
+apt -y autoremove --purge --allow-change-held-packages thunderbird-gnome-support thunderbird
+##libreoffice
+apt -y autoremove --purge --allow-change-held-packages libreoffice-writer 
+apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
+apt -y autoremove --purge --allow-change-held-packages libreoffice-impress  
+apt -y autoremove --purge --allow-change-held-packages libreoffice-draw libreoffice-base-core libreoffice-gtk3 libreoffice-gnome  libreoffice-calc python3-uno
+apt -y autoremove --purge --allow-change-held-packages libreoffice-pdfimport libreoffice-math libreoffice-core libreoffice-common 
+apt -y autoremove --purge --allow-change-held-packages libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary
+apt -y autoremove --purge --allow-change-held-packages uno-libs-private ure libunoloader-java libuno-salhelpergcc3-3 libuno-sal3 libuno-purpenvhelpergcc3-3 libuno-cppuhelpergcc3-3 libuno-cppu3 libridl-java libjurt-java libjuh-java 
+apt -y autoremove --purge --allow-change-held-packages hunspell-en-us fonts-opensymbol
+rm -rf /usr/share/libreoffice
 
+apt -y autoremove --purge --allow-change-held-packages ubuntu-desktop ubuntu-desktop-minimal update-notifier-common update-notifier update-manager-core update-manager ubuntu-release-upgrader-gtk  ubuntu-release-upgrader-core
+##git
+apt -y autoremove --purge --allow-change-held-packages git git-man
+##gnome-todo
+apt -y autoremove --purge --allow-change-held-packages gnome-todo gnome-todo-common libgnome-todo
+##rhythmbox
+apt -y autoremove --purge --allow-change-held-packages gir1.2-rb-3.0 rhythmbox-plugins rhythmbox-plugin-alternative-toolbar rhythmbox rhythmbox-data librhythmbox-core10
+##snapd
+apt -y autoremove --purge --allow-change-held-packages  snapd
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo
@@ -89,6 +110,10 @@ echo -e "127.0.0.1    localhost \n127.0.1.1    Ubuntu20-04\n" > /etc/hosts
 apt-get clean
 apt autoremove -y
 rm -rf /var/lib/apt/lists/*
+rm -rf /var/cache/debconf/* \
+  /var/log/* \
+  /var/tmp/* \
+  && rm -rf /tmp/*
 rm -rf /packages/rga/
 rm -rf /packages/mpp/
 rm -rf /packages/gst-rkmpp/
