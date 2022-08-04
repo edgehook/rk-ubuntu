@@ -80,8 +80,6 @@ systemctl enable pppd-dns.service
 systemctl mask systemd-networkd-wait-online.service
 systemctl mask NetworkManager-wait-online.service
 #for login
-useradd -s '/bin/bash' -m -G adm,sudo,plugdev,audio,video adv
-echo "adv:123456" | chpasswd
 echo "root:123456" | chpasswd
 #locale
 sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
