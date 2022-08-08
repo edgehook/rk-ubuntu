@@ -43,7 +43,12 @@ apt -y autoremove --purge --allow-change-held-packages gnome-todo gnome-todo-com
 ##rhythmbox
 apt -y autoremove --purge --allow-change-held-packages gir1.2-rb-3.0 rhythmbox-plugins rhythmbox-plugin-alternative-toolbar rhythmbox rhythmbox-data librhythmbox-core10
 ##snapd
-apt -y autoremove --purge --allow-change-held-packages  snapd
+apt -y autoremove --purge --allow-change-held-packages snapd
+##games
+apt -y autoremove --purge --allow-change-held-packages gnome-mines
+apt -y autoremove --purge --allow-change-held-packages gnome-sudoku
+apt -y autoremove --purge --allow-change-held-packages gnome-mahjongg
+apt -y autoremove --purge --allow-change-held-packages aisleriot
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo

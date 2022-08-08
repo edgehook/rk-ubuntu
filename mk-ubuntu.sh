@@ -12,6 +12,9 @@ if [ "$1" == "new" ]; then
     RELEASE=focal ARCH=arm64 ./mk-base-ubuntu.sh
 else
     echo "use exist ubuntu base"
+	if [ -e $UBUNTU_DIR/ubuntu20.04-whole.tar.gz ]; then
+		rm $UBUNTU_DIR/ubuntu20.04-whole.tar.gz
+	fi
     cat $UBUNTU_DIR/ubuntu-base/ubuntu20.04-*.tar.gz* > $UBUNTU_DIR/ubuntu20.04-whole.tar.gz
 fi
 
