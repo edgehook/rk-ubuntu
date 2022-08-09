@@ -1,0 +1,12 @@
+[Unit]
+Description=Setup advantech init enviroment
+After=rockchip.service
+
+[Service]
+Type=simple
+ExecStart=/etc/init.d/advinit start
+ExecStop=/etc/init.d/advinit stop
+
+[Install]
+Alias=advinit.service
+WantedBy=multi-user.target

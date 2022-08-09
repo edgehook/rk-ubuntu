@@ -1,0 +1,4 @@
+# <file system>                         <mount pt>              <type>          <options>               <dump>  <pass>
+/dev/disk/by-partlabel/oem              /oem                    ext2            defaults                0       0
+/dev/disk/by-partlabel/userdata         /userdata               ext2            defaults                0       0
+

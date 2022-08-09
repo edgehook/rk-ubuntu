@@ -1,0 +1,43 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          advantech
+# Required-Start:
+# Required-Stop:
+# Default-Start: S
+# Default-Stop: 6
+# Short-Description:
+# Description:       Linux advinit
+### END INIT INFO
+
+case "$1" in
+start)
+    # Create /etc/serialID
+    CPUINFO=`cat /proc/cpuinfo | grep "Serial"`
+    echo ${CPUINFO##*:} > /etc/serialID
+
+    # Chmod of /userdata
+    if [ -d "/userdata" ];then
+        chmod 0777 /userdata 
+    fi
+
+    # for uart RS232 or RS485 mode
+    #cp210x_232_485
+
+    # down and up eth0
+    ifconfig eth0 down
+    ifconfig eth0 up
+
+    # for can f81601
+    #insmod /system/lib/modules/f81601.ko enable_mem_access=1
+    ;;
+stop)
+    ;;
+restart|reload)
+    ;;
+*)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit 0
+
