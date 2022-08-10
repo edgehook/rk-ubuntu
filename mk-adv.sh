@@ -22,15 +22,16 @@ sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
+rm -rf /etc/mpv/mpv.conf
 ##thunderbird
 apt -y autoremove --purge --allow-change-held-packages thunderbird-gnome-support thunderbird
 ##libreoffice
 apt -y autoremove --purge --allow-change-held-packages libreoffice-writer 
-apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
 apt -y autoremove --purge --allow-change-held-packages libreoffice-impress  
 apt -y autoremove --purge --allow-change-held-packages libreoffice-draw libreoffice-base-core libreoffice-gtk3 libreoffice-gnome  libreoffice-calc python3-uno
 apt -y autoremove --purge --allow-change-held-packages libreoffice-pdfimport libreoffice-math libreoffice-core libreoffice-common 
 apt -y autoremove --purge --allow-change-held-packages libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary
+apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
 apt -y autoremove --purge --allow-change-held-packages uno-libs-private ure libunoloader-java libuno-salhelpergcc3-3 libuno-sal3 libuno-purpenvhelpergcc3-3 libuno-cppuhelpergcc3-3 libuno-cppu3 libridl-java libjurt-java libjuh-java 
 apt -y autoremove --purge --allow-change-held-packages hunspell-en-us fonts-opensymbol
 rm -rf /usr/share/libreoffice

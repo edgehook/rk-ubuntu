@@ -182,12 +182,16 @@ source ~/.bashrc
 # mark package to hold
 apt list --installed | grep -v oldstable | cut -d/ -f1 | xargs apt-mark hold
 
+#------------------apt-utils------------
+apt-get install -y apt-utils
+apt-get install -y dialog
+
 #------------------ffmpeg------------
 \${APT_INSTALL} ffmpeg
 \${APT_INSTALL} /packages/ffmpeg/*.deb
 
 #------------------mpv------------
-\${APT_INSTALL} mpv
+\${APT_INSTALL} mpv smplayer
 \${APT_INSTALL} /packages/mpv/*.deb
 
 # HACK to disable the kernel logo on bootup
