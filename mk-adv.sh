@@ -57,6 +57,7 @@ apt-get install -y mtd-utils
 apt-get install -y minicom
 apt-get install -y iperf3
 apt-get install -y ftp
+apt-get install -y build-essential
 #for rpmb
 #apt-get install -y mmc-utils
 #for bt udev
