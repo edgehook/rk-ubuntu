@@ -115,10 +115,10 @@ echo -e "127.0.0.1    localhost \n127.0.1.1    Ubuntu20-04\n" > /etc/hosts
 apt-get clean
 apt autoremove -y
 rm -rf /var/lib/apt/lists/*
-rm -rf /var/cache/debconf/* \
-  /var/log/* \
-  /var/tmp/* \
-  && rm -rf /tmp/*
+#rm -rf /var/cache/debconf/* \
+#  /var/log/* \
+#  /var/tmp/* \
+#  && rm -rf /tmp/*
 rm -rf /packages/rga/
 rm -rf /packages/mpp/
 rm -rf /packages/gst-rkmpp/
