@@ -22,15 +22,16 @@ sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
+rm -rf /etc/mpv/mpv.conf
 ##thunderbird
 apt -y autoremove --purge --allow-change-held-packages thunderbird-gnome-support thunderbird
 ##libreoffice
 apt -y autoremove --purge --allow-change-held-packages libreoffice-writer 
-apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
 apt -y autoremove --purge --allow-change-held-packages libreoffice-impress  
 apt -y autoremove --purge --allow-change-held-packages libreoffice-draw libreoffice-base-core libreoffice-gtk3 libreoffice-gnome  libreoffice-calc python3-uno
 apt -y autoremove --purge --allow-change-held-packages libreoffice-pdfimport libreoffice-math libreoffice-core libreoffice-common 
 apt -y autoremove --purge --allow-change-held-packages libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary
+apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
 apt -y autoremove --purge --allow-change-held-packages uno-libs-private ure libunoloader-java libuno-salhelpergcc3-3 libuno-sal3 libuno-purpenvhelpergcc3-3 libuno-cppuhelpergcc3-3 libuno-cppu3 libridl-java libjurt-java libjuh-java 
 apt -y autoremove --purge --allow-change-held-packages hunspell-en-us fonts-opensymbol
 rm -rf /usr/share/libreoffice
@@ -56,6 +57,9 @@ apt-get install -y mtd-utils
 apt-get install -y minicom
 apt-get install -y iperf3
 apt-get install -y ftp
+apt-get install -y build-essential
+#for minicom
+rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
 #apt-get install -y mmc-utils
 #for bt udev
@@ -78,6 +82,8 @@ apt-get install -y libqt5quickwidgets5
 apt-get install -y libqt5webenginewidgets5
 # udisks2
 apt-get install -y libblockdev-mdraid2
+# cpufreq-info
+apt-get install -y cpufrequtils
 #---------------Adjust--------------
 systemctl enable advinit.service
 systemctl enable adv-wifi-init.service
@@ -113,10 +119,10 @@ echo -e "127.0.0.1    localhost \n127.0.1.1    Ubuntu20-04\n" > /etc/hosts
 apt-get clean
 apt autoremove -y
 rm -rf /var/lib/apt/lists/*
-rm -rf /var/cache/debconf/* \
-  /var/log/* \
-  /var/tmp/* \
-  && rm -rf /tmp/*
+#rm -rf /var/cache/debconf/* \
+#  /var/log/* \
+#  /var/tmp/* \
+#  && rm -rf /tmp/*
 rm -rf /packages/rga/
 rm -rf /packages/mpp/
 rm -rf /packages/gst-rkmpp/
