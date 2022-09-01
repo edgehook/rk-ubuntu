@@ -100,7 +100,7 @@ then
        /usr/lib/aarch64-linux-gnu/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders > /usr/lib/aarch64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache
     fi
 
-    rm -rf /packages
+    rm -f /*.deb
 
     # The base target does not come with gdm3
     systemctl restart gdm3.service || true
