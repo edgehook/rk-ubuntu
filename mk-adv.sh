@@ -1,5 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
+RELEASE_VERSION="2.0.0.0"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -115,6 +116,8 @@ ln -s /dev/disk/by-partlabel/misc /misc
 #set hostname
 echo "Ubuntu20-04" > /etc/hostname
 echo -e "127.0.0.1    localhost \n127.0.1.1    Ubuntu20-04\n" > /etc/hosts
+#Adding advantech-info to /etc/os-release...
+echo "ADVANTECH_INFO=\"Beta release version:${RELEASE_VERSION}\"" >> /etc/os-release
 #---------------Clean--------------
 apt-get clean
 apt autoremove -y
