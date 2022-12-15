@@ -56,7 +56,7 @@ export APT_INSTALL="apt-get install -fy --allow-downgrades"
 apt-get -y update
 apt-get -f -y upgrade
 
-DEBIAN_FRONTEND=noninteractive apt install -y gnome-session gdm3 ubuntu-desktop
+DEBIAN_FRONTEND=noninteractive apt install -y lxde desktop-base
 apt install -y rsyslog wget gdb net-tools inetutils-ping openssh-server ifupdown alsa-utils python vim ntp git libssl-dev vsftpd tcpdump can-utils i2c-tools strace network-manager onboard evtest
 apt install -y language-pack-zh-han* language-pack-en $(check-language-support) ibus-libpinyin language-pack-gnome-zh-hans gnome-getting-started-docs-zh-hk
 apt install -y blueman
@@ -64,6 +64,19 @@ echo exit 101 > /usr/sbin/policy-rc.d
 chmod +x /usr/sbin/policy-rc.d
 apt install -y blueman
 rm -f /usr/sbin/policy-rc.d
+
+#--------- language support -----
+apt-get install -y fonts-noto-cjk fonts-arphic-ukai gnome-user-docs-zh-hans gnome-getting-started-docs-zh-tw fcitx-table-cangjie language-pack-gnome-zh-hant ibus-table-cangjie5 fonts-noto-cjk-extra fonts-arphic-uming fcitx-chewing ibus-chewing ibus-table-wubi ibus-table-cangjie3 wbritish language-pack-gnome-en ibus-table-quick-classic firefox-locale-zh-hans firefox-locale-zh-hant firefox-locale-en
+
+#--------- lightdm login ------
+apt-get install -y lightdm-gtk-greeter-settings
+#--------- utils ------
+apt-get install -y htop
+
+#--------- remove app ---------
+apt-get remove --purge -y light-locker-settings light-locker
+apt-get remove --purge -y xscreensaver
+apt-get remove --purge -y clipit
 
 HOST=ubuntu
 
