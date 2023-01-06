@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.1"
+RELEASE_VERSION="2.0.0.2"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -24,6 +24,7 @@ cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
 rm -rf /etc/mpv/mpv.conf
+rm -rf /usr/share/applications/redhat-usermount.desktop
 ##git
 apt -y autoremove --purge --allow-change-held-packages git git-man
 #--------- install base app ---------
