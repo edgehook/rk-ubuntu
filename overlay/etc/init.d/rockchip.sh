@@ -117,22 +117,6 @@ fi
 # enable adbd service
 #service adbd start
 
-# support power management
-if [ -e "/usr/sbin/pm-suspend" -a -e /etc/Powermanager ] ;
-then
-    mv /etc/Powermanager/power-key.sh /usr/bin/
-    mv /etc/Powermanager/power-key.conf /etc/triggerhappy/triggers.d/
-    if [[ "$CHIPNAME" == "rk3399pro" ]];
-    then
-        mv /etc/Powermanager/01npu /usr/lib/pm-utils/sleep.d/
-        mv /etc/Powermanager/02npu /lib/systemd/system-sleep/
-    fi
-    mv /etc/Powermanager/triggerhappy /etc/init.d/triggerhappy
-
-    rm /etc/Powermanager -rf
-    service triggerhappy restart
-fi
-
 # Create dummy video node for chromium V4L2 VDA/VEA with rkmpp plugin
 echo dec > /dev/video-dec0
 echo enc > /dev/video-enc0

@@ -119,9 +119,11 @@ echo -e "\033[36m Install Xserver.................... \033[0m"
 dpkg -i /packages/xserver/*.deb
 apt install -f -y
 
-apt-mark hold xserver-common xserver-xorg-core xserver-xorg-legacy
+#apt-mark hold xserver-common xserver-xorg-core xserver-xorg-legacy
+apt-mark hold xserver-xorg-core
 
 #---------update chromium-----
+\${APT_INSTALL} libjsoncpp-dev libminizip1
 \${APT_INSTALL} /packages/chromium/*.deb
 
 #------------------libdrm------------
