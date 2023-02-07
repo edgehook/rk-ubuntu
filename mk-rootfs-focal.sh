@@ -75,6 +75,7 @@ elif [ "$ARCH" == "arm64"  ]; then
 fi
 
 sudo cp -f /etc/resolv.conf $TARGET_ROOTFS_DIR/etc/
+sudo cp -f sources.list $TARGET_ROOTFS_DIR/etc/apt/
 
 sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 
@@ -193,6 +194,7 @@ apt-get install -y dialog
 #------------------mpv------------
 \${APT_INSTALL} mpv smplayer
 \${APT_INSTALL} /packages/mpv/*.deb
+mv /etc/mpv/mpv-rk.conf /etc/mpv/mpv.conf
 
 # HACK to disable the kernel logo on bootup
 sed -i "/exit 0/i \ echo 3 > /sys/class/graphics/fb0/blank" /etc/rc.local
