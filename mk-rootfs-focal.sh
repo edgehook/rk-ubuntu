@@ -176,9 +176,31 @@ apt-get install -y dialog
 \${APT_INSTALL} mpv smplayer
 \${APT_INSTALL} /packages/mpv/*.deb
 mv /etc/mpv/mpv-rk.conf /etc/mpv/mpv.conf
+cp /packages/libmali/libmali-*-x11*.deb /
+cp -rf /packages/rkaiq/*.deb /
+# reduce 500M size for rootfs
+rm -rf /usr/lib/firmware
 
 # HACK to disable the kernel logo on bootup
 sed -i "/exit 0/i \ echo 3 > /sys/class/graphics/fb0/blank" /etc/rc.local
+
+#------remove unused packages------------
+apt remove --purge -fy linux-firmware*
+
+#---------------Clean--------------
+if [ -e "/usr/lib/arm-linux-gnueabihf/dri" ]; then
+	cd /usr/lib/arm-linux-gnueabihf/dri/
+	cp kms_swrast_dri.so swrast_dri.so rockchip_dri.so /
+	rm /usr/lib/arm-linux-gnueabihf/dri/*.so
+	mv /*.so /usr/lib/arm-linux-gnueabihf/dri/
+elif [ -e "/usr/lib/aarch64-linux-gnu/dri" ]; then
+	cd /usr/lib/aarch64-linux-gnu/dri/
+	cp kms_swrast_dri.so swrast_dri.so rockchip_dri.so /
+	rm /usr/lib/aarch64-linux-gnu/dri/*.so
+	mv /*.so /usr/lib/aarch64-linux-gnu/dri/
+	rm /etc/profile.d/qt.sh
+fi
+cd -
 
 #---------------Custom Script--------------
 systemctl mask systemd-networkd-wait-online.service
@@ -187,6 +209,8 @@ rm /lib/systemd/system/wpa_supplicant@.service
 
 #---------------Clean--------------
 rm -rf /var/lib/apt/lists/*
+rm -rf /var/cache/
+rm -rf /packages/
 
 EOF
 
