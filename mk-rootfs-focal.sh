@@ -90,7 +90,8 @@ chmod +x /etc/rc.local
 export APT_INSTALL="apt-get install -fy --allow-downgrades"
 
 #---------------Pre-packages --------------
-\${APT_INSTALL} bsdmainutils
+\${APT_INSTALL} bsdmainutils parole
+apt remove -fy firefox totem
 
 #---------------Rga--------------
 \${APT_INSTALL} /packages/rga/*.deb
@@ -161,19 +162,15 @@ tar xvf /packages/rknpu2/*.tar -C /
 echo -e "\033[36m Install rktoolkit.................... \033[0m"
 \${APT_INSTALL} /packages/rktoolkit/*.deb
 
-# mark package to hold
-apt list --installed | grep -v oldstable | cut -d/ -f1 | xargs apt-mark hold
-
 #------------------apt-utils------------
 apt-get install -y apt-utils
 apt-get install -y dialog
 
 #------------------ffmpeg------------
-\${APT_INSTALL} ffmpeg
 \${APT_INSTALL} /packages/ffmpeg/*.deb
 
 #------------------mpv------------
-\${APT_INSTALL} mpv smplayer
+\${APT_INSTALL} smplayer
 \${APT_INSTALL} /packages/mpv/*.deb
 mv /etc/mpv/mpv-rk.conf /etc/mpv/mpv.conf
 cp /packages/libmali/libmali-*-x11*.deb /
@@ -202,6 +199,8 @@ elif [ -e "/usr/lib/aarch64-linux-gnu/dri" ]; then
 fi
 cd -
 
+# mark package to hold
+apt list --installed | grep -v oldstable | cut -d/ -f1 | xargs apt-mark hold
 #---------------Custom Script--------------
 systemctl mask systemd-networkd-wait-online.service
 systemctl mask NetworkManager-wait-online.service

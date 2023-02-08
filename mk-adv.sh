@@ -35,6 +35,7 @@ apt-get install -y minicom
 apt-get install -y iperf3
 apt-get install -y ftp
 apt-get install -y build-essential
+apt-get install -y usbutils
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
