@@ -39,7 +39,7 @@ install_mali() {
             ;;
     esac
 
-    apt install -f /packages/libmali/libmali-*$MALI*-x11*.deb
+    apt install -f /libmali-*$MALI*-x11*.deb
 }
 
 
@@ -87,7 +87,7 @@ then
     # Force rootfs synced
     mount -o remount,sync /
 
-    #install_mali ${CHIPNAME}
+    install_mali ${CHIPNAME}
     setcap CAP_SYS_ADMIN+ep /usr/bin/gst-launch-1.0
 
     # Cannot open pixbuf loader module file
