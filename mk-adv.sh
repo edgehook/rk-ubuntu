@@ -23,7 +23,6 @@ sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
-rm -rf /etc/mpv/mpv.conf
 rm -rf /usr/share/applications/redhat-usermount.desktop
 ##git
 apt -y autoremove --purge --allow-change-held-packages git git-man
@@ -103,29 +102,7 @@ rm -rf /var/lib/apt/lists/*
 #  /var/log/* \
 #  /var/tmp/* \
 #  && rm -rf /tmp/*
-rm -rf /packages/rga/
-rm -rf /packages/mpp/
-rm -rf /packages/gst-rkmpp/
-rm -rf /packages/gstreamer/
-rm -rf /packages/gst-plugins-base1.0/
-rm -rf /packages/gst-plugins-bad1.0/
-rm -rf /packages/gst-plugins-good1.0/
-rm -rf /packages/rkisp/
-rm -rf /packages/rkaiq/
-rm -rf /packages/libv4l/
-rm -rf /packages/xserver/
-rm -rf /packages/chromium/
-rm -rf /packages/libdrm/
-rm -rf /packages/libdrm-cursor/
-rm -rf /packages/blueman/
-rm -rf /packages/rkwifibt/
-rm -rf /packages/rknpu2/
-rm -rf /packages/rktoolkit/
-rm -rf /packages/ffmpeg/
-rm -rf /packages/mpv/
-rm -rf /packages/docker/
-rm -rf /packages/libmali/
-rm -rf /packages/glmark2/
+rm -rf /packages/
 EOF
 
 sudo umount $TARGET_ROOTFS_DIR/dev

@@ -206,11 +206,6 @@ systemctl mask systemd-networkd-wait-online.service
 systemctl mask NetworkManager-wait-online.service
 rm /lib/systemd/system/wpa_supplicant@.service
 
-#---------------Clean--------------
-rm -rf /var/lib/apt/lists/*
-rm -rf /var/cache/
-rm -rf /packages/
-
 EOF
 
 sudo umount $TARGET_ROOTFS_DIR/dev
