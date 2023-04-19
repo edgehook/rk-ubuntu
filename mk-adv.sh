@@ -23,9 +23,31 @@ sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 #---------------Remove--------------
 rm -rf /etc/sudoers
-rm -rf /usr/share/applications/redhat-usermount.desktop
+##thunderbird
+#apt -y autoremove --purge --allow-change-held-packages thunderbird-gnome-support thunderbird
+##libreoffice
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-writer
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-impress
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-draw libreoffice-base-core libreoffice-gtk3 libreoffice-gnome  libreoffice-calc python3-uno
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-pdfimport libreoffice-math libreoffice-core libreoffice-common
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary
+#apt -y autoremove --purge --allow-change-held-packages libreoffice-style-tango
+#apt -y autoremove --purge --allow-change-held-packages uno-libs-private ure libunoloader-java libuno-salhelpergcc3-3 libuno-sal3 libuno-purpenvhelpergcc3-3 libuno-cppuhelpergcc3-3 libuno-cppu3 libridl-java libjurt-java libjuh-java
+#apt -y autoremove --purge --allow-change-held-packages hunspell-en-us fonts-opensymbol
+#rm -rf /usr/share/libreoffice
 ##git
 apt -y autoremove --purge --allow-change-held-packages git git-man
+##gnome-todo
+#apt -y autoremove --purge --allow-change-held-packages gnome-todo gnome-todo-common libgnome-todo
+##rhythmbox
+#apt -y autoremove --purge --allow-change-held-packages gir1.2-rb-3.0 rhythmbox-plugins rhythmbox-plugin-alternative-toolbar rhythmbox rhythmbox-data librhythmbox-core10
+##snapd
+#apt -y autoremove --purge --allow-change-held-packages snapd
+##games
+apt -y autoremove --purge --allow-change-held-packages gnome-mines
+apt -y autoremove --purge --allow-change-held-packages gnome-sudoku
+apt -y autoremove --purge --allow-change-held-packages gnome-mahjongg
+apt -y autoremove --purge --allow-change-held-packages aisleriot
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo

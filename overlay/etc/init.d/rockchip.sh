@@ -103,7 +103,7 @@ then
     rm -f /*.deb
 
     # The base target does not come with gdm3
-    systemctl restart lightdm.service || true
+    systemctl restart gdm3.service || true
 
     touch /usr/local/first_boot_flag
 fi

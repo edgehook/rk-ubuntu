@@ -90,7 +90,6 @@ chmod +x /etc/rc.local
 export APT_INSTALL="apt-get install -fy --allow-downgrades"
 
 #---------------Pre-packages --------------
-\${APT_INSTALL} bsdmainutils parole
 apt remove -fy firefox totem
 
 #---------------Rga--------------
