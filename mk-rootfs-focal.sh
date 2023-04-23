@@ -115,9 +115,9 @@ echo -e "\033[36m Install camera.................... \033[0m"
 
 #---------Xserver---------
 echo -e "\033[36m Install Xserver.................... \033[0m"
-#\${APT_INSTALL} /packages/xserver/*.deb
-dpkg -i /packages/xserver/*.deb
-apt install -f -y
+\${APT_INSTALL} /packages/xserver/*.deb
+#dpkg -i /packages/xserver/*.deb
+#apt install -f -y
 
 #apt-mark hold xserver-common xserver-xorg-core xserver-xorg-legacy
 apt-mark hold xserver-xorg-core
@@ -140,7 +140,7 @@ sed -i "1aexport LD_PRELOAD=libdrm-cursor.so.1" /usr/bin/X
 
 #------------------blueman------------
 echo -e "\033[36m Install blueman.................... \033[0m"
-\${APT_INSTALL} /packages/blueman/*.deb
+#\${APT_INSTALL} /packages/blueman/*.deb
 
 #------------------rkwifibt------------
 echo -e "\033[36m Install rkwifibt.................... \033[0m"
