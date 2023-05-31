@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # HACK: Prevent blueman from changing rfkill states
-rm /dev/rfkill
+# rm /dev/rfkill
 
 # init BT Power
 if [ -f /sys/class/rfkill/rfkill0/state ];then
