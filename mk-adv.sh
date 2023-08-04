@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.4"
+RELEASE_VERSION="2.0.0.5"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -48,6 +48,8 @@ apt -y autoremove --purge --allow-change-held-packages gnome-mines
 apt -y autoremove --purge --allow-change-held-packages gnome-sudoku
 apt -y autoremove --purge --allow-change-held-packages gnome-mahjongg
 apt -y autoremove --purge --allow-change-held-packages aisleriot
+##modify ping tools from inetutils-ping to iputils-ping
+apt -y autoremove --purge --allow-change-held-packages inetutils-ping
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo
@@ -57,6 +59,7 @@ apt-get install -y iperf3
 apt-get install -y ftp
 apt-get install -y build-essential
 apt-get install -y usbutils
+apt-get install -y iputils-ping
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
