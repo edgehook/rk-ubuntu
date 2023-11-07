@@ -1,6 +1,6 @@
 #!/bin/bash -e
 TARGET_ROOTFS_DIR="binary"
-RELEASE_VERSION="2.0.0.2"
+RELEASE_VERSION="2.0.0.3"
 ARCH=arm64
 
 echo "in mk-adv.sh"
@@ -38,6 +38,7 @@ apt-get install -y ftp
 apt-get install -y build-essential
 apt-get install -y usbutils
 apt-get install -y iputils-ping
+apt-get install -y netplan.io
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
