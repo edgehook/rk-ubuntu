@@ -81,21 +81,21 @@ apt-get remove --purge -y clipit
 HOST=ubuntu
 
 # Create User
-useradd -G sudo -m -s /bin/bash ubuntu
-passwd ubuntu <<IEOF
-ubuntu
-ubuntu
+useradd -G sudo -m -s /bin/bash adv
+passwd adv <<IEOF
+123456
+123456
 IEOF
-gpasswd -a ubuntu video
-gpasswd -a ubuntu audio
+gpasswd -a adv video
+gpasswd -a adv audio
 passwd root <<IEOF
-root
-root
+123456
+123456
 IEOF
 
 # Enable lightdm autologin for linaro user
 if [ -e /etc/gdm3/custom.conf ]; then
-  sed -i "s|^#AutomaticLogin=.*|AutomaticLogin=ubuntu|" /etc/gdm3/custom.conf
+  sed -i "s|^#AutomaticLogin=.*|AutomaticLogin=adv|" /etc/gdm3/custom.conf
   sed -i "s|^#AutomaticLoginEnable=.*|AutomaticLoginEnable=true|" /etc/gdm3/custom.conf
 fi
 
