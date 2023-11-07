@@ -26,6 +26,8 @@ rm -rf /etc/sudoers
 rm -rf /usr/share/applications/redhat-usermount.desktop
 ##git
 apt -y autoremove --purge --allow-change-held-packages git git-man
+##modify ping tools from inetutils-ping to iputils-ping
+apt -y autoremove --purge --allow-change-held-packages inetutils-ping
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo
@@ -35,6 +37,7 @@ apt-get install -y iperf3
 apt-get install -y ftp
 apt-get install -y build-essential
 apt-get install -y usbutils
+apt-get install -y iputils-ping
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
@@ -67,8 +70,6 @@ systemctl enable adv-wifi-init.service
 systemctl enable pppd-dns.service
 systemctl mask systemd-networkd-wait-online.service
 systemctl mask NetworkManager-wait-online.service
-#for login
-echo "root:123456" | chpasswd
 #locale
 sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/# zh_CN GB2312/zh_CN GB2312/g' /etc/locale.gen
