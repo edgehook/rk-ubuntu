@@ -1,0 +1,12 @@
+# 默认注释了源码仓库，如有需要可自行取消注释
+deb http://ports.ubuntu.com/ubuntu-ports/ focal main restricted universe multiverse
+# deb-src http://ports.ubuntu.com/ubuntu-ports/ focal main restricted universe multiverse
+
+deb http://ports.ubuntu.com/ubuntu-ports/ focal-security main restricted universe multiverse
+# deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-security main restricted universe multiverse
+
+deb http://ports.ubuntu.com/ubuntu-ports/ focal-updates main restricted universe multiverse
+# deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-updates main restricted universe multiverse
+
+deb http://ports.ubuntu.com/ubuntu-ports/ focal-backports main restricted universe multiverse
+# deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-backports main restricted universe multiverse
