@@ -39,6 +39,7 @@ apt-get install -y build-essential
 apt-get install -y usbutils
 apt-get install -y iputils-ping
 apt-get install -y netplan.io
+apt-get install -y ntpdate
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
