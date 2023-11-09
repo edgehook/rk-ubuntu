@@ -176,7 +176,7 @@ echo "export LANGUAGE=zh_CN.UTF-8" >> ~/.bashrc
 
 source ~/.bashrc
 
-\${APT_INSTALL} ttf-wqy-zenhei fonts-aenigma
+\${APT_INSTALL} xfonts-wqy fonts-wqy-microhei fonts-wqy-zenhei fonts-aenigma
 \${APT_INSTALL} xfonts-intl-chinese
 
 #------------------apt-utils------------

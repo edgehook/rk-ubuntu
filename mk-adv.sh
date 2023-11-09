@@ -33,17 +33,22 @@ apt-get update
 apt-get install -y sudo
 apt-get install -y mtd-utils
 apt-get install -y minicom
+apt-get install -y ethtool
 apt-get install -y iperf3
+apt-get install -y pciutils
+apt-get install -y hdparm
 apt-get install -y ftp
 apt-get install -y build-essential
+apt-get install -y exfat-fuse exfat-utils
 apt-get install -y usbutils
 apt-get install -y iputils-ping
 apt-get install -y netplan.io
 apt-get install -y ntpdate
+apt-get install -y ntpstat
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
-#apt-get install -y mmc-utils
+apt-get install -y mmc-utils
 #for bt udev
 echo exit 101 > /usr/sbin/policy-rc.d
 chmod +x /usr/sbin/policy-rc.d
@@ -62,6 +67,12 @@ apt-get install -f -y
 apt-get install -y libqt5webenginecore5
 apt-get install -y libqt5quickwidgets5
 apt-get install -y libqt5webenginewidgets5
+apt-get install -y libqt5*-dev
+apt-get install -y qt5*-dev
+apt-get install -y qt*5-dev
+apt-get install -y qt*5-private-dev
+apt-get install -y qt*5-doc-dev
+apt-get install -y qt5-qmake
 # udisks2
 apt-get install -y libblockdev-mdraid2
 # cpufreq-info
