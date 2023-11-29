@@ -28,6 +28,8 @@ rm -rf /usr/share/applications/redhat-usermount.desktop
 apt -y autoremove --purge --allow-change-held-packages git git-man
 ##modify ping tools from inetutils-ping to iputils-ping
 apt -y autoremove --purge --allow-change-held-packages inetutils-ping
+#lightdm
+apt -y autoremove --purge --allow-change-held-packages lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 #--------- install base app ---------
 apt-get update
 apt-get install -y sudo
@@ -45,6 +47,10 @@ apt-get install -y iputils-ping
 apt-get install -y netplan.io
 apt-get install -y ntpdate
 apt-get install -y ntpstat
+#lxdm
+apt-get install -y lxdm
+sed -i "s|^# autologin=.*|autologin=adv|" /etc/lxdm/lxdm.conf
+sed -i "s|^# arg=.*|arg=/usr/bin/X -s 0 -dpms|" /etc/lxdm/lxdm.conf
 #for minicom
 rm -rf /usr/share/applications/minicom.desktop
 #for rpmb
